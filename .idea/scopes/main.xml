@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="main" pattern="!ext:*/&amp;&amp;!file[j2023_06_15_Split_CSV_by_Row_Delimiter]:.idea//*&amp;&amp;!lib:*..*&amp;&amp;!src:*..*&amp;&amp;!test:*..*" />
+</component>
