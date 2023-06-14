@@ -1,4 +1,4 @@
-package org.example;
+package main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
