@@ -1,6 +1,7 @@
 package csv;
 
 import util.U;
+import util.UFile;
 
 import java.io.*;
 
@@ -21,6 +22,8 @@ public MyCsvReader(String csvFilePath, String eolChar, int maxByteCount, String 
 }
 
 public void readAndPrint() throws Exception {
+    UFile.deleteFileOrDir(resultFilePath);
+//    UFile.createFile     (resultFilePath);
 
     InputStream is1 = new FileInputStream(csvFilePath); // InputStream is used to read binary data, while Reader is used to read text data, precisely Unicode characters.
                                                         // InputStream.read() returns -1, or 0-255.  Nothing else. (Don't worry about 2's complements)
@@ -34,10 +37,14 @@ public void readAndPrint() throws Exception {
             int b;
             if (   currByteCount++ > maxByteCount || (b = bis.read()) == -1   )  break;
             switch(b) {
-                case 10: U.print("___EOL___"); // LF
-                case 13: continue; // CR - eol is "CR-LF" or "LF"
+                case 10:
+//                    U.print("___EOL___"); // LF
+                    output.write('\n');
+                case 13:
+                    continue; // CR - eol is "CR-LF" or "LF"
                 default:
-                    U.printInline(b + "[" + (char)b + "]");
+//                    U.printInline(b + "[" + (char)b + "]");
+                    output.write( (char) b);
                     //                output.write(c); // String.format(""0x%04X "", c)
             }
 
