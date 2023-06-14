@@ -1,5 +1,6 @@
 package util;
 
+@SuppressWarnings("unused")
 public class U { // class /////////////////////////////////////
 // fields .......................................
 
